@@ -10,17 +10,6 @@
   (* x 2)
 )
 
-(define (fast-m a b)
-  (display "a: ")(display a)(display " b: ")(display b)(newline)
-  (cond 
-    ((= b 1) a)
-    ((even? b) (fast-m (d a) (h b)))
-    (else (fast-m (+ a a) (- b 1)))
-  )
-)
-
-(fast-m 7 10)
-
 (define (rec-fast-expnt b n)
   (cond 
     ((= n 0) 1)
@@ -38,7 +27,7 @@
   )
 )
 
-(define (fast-expnt-iter b n) 
+(define (iter-fast-expnt b n) 
   (define (iter a b n) 
     (cond
       ((= n 0) a)
@@ -49,6 +38,14 @@
   (iter 1 b n)
 )
 
-(rec-fast-m 10 8)
-(rec-fast-m 8 4)
-(rec-fast-m 8 7)
+(define (iter-fast-m a b)
+  (display "a: ")(display a)(display " b: ")(display b)(newline)
+  (cond 
+    ((= b 1) a) 
+    ((even? b) (iter-fast-m (d a) (h b)))
+    (else (iter-fast-m (+ a b) (- b 1)))
+  )
+)
+
+(rec-fast-m 7 7)
+(iter-fast-m 7 7)

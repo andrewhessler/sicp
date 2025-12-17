@@ -39,12 +39,15 @@
 )
 
 (define (iter-fast-m a b)
-  (display "a: ")(display a)(display " b: ")(display b)(newline)
-  (cond 
-    ((= b 1) a) 
-    ((even? b) (iter-fast-m (d a) (h b)))
-    (else (iter-fast-m (+ a b) (- b 1)))
+  (define (iter a b s)
+    (display "a: ")(display a)(display " b: ")(display b)(display " s: ")(display s)(newline)
+    (cond 
+      ((= b 1) (+ a s)) 
+      ((even? b) (iter (d a) (h b) s))
+      (else (iter a (- b 1) (+ s a)))
+    )
   )
+  (iter a b 0)
 )
 
 (rec-fast-m 7 7)

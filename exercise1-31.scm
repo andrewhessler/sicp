@@ -68,4 +68,4 @@
   (* 4 (product-iter 1 n term inc))
 )
 
-(pi-approx-formula-iter 1000000000)
+(pi-approx-formula-iter 1000000000) ; takes 18 mins on my machine lol
